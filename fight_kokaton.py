@@ -77,11 +77,14 @@ class Bird:
             if key_lst[k]:
                 sum_mv[0] += mv[0]
                 sum_mv[1] += mv[1]
+
         self.rct.move_ip(sum_mv)
+
         if check_bound(self.rct) != (True, True):
             self.rct.move_ip(-sum_mv[0], -sum_mv[1])
         if not (sum_mv[0] == 0 and sum_mv[1] == 0):
             self.img = __class__.imgs[tuple(sum_mv)]
+
         screen.blit(self.img, self.rct)
 
 
@@ -115,6 +118,8 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+
+
 class Beam:
     def __init__(self, bird: Bird):
         """
@@ -135,6 +140,7 @@ class Beam:
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)
 
+
 class Score:
     """
     現在のスコアを表示させ、変動させる
@@ -147,8 +153,6 @@ class Score:
     def update(self, screen: pg.Surface):
         self.img = self.fonto.render(f"スコア{self.scores}", 0, (0, 0, 255))
         screen.blit(self.img, [100, HEIGHT-50])
-
-
 
 
 def main():
