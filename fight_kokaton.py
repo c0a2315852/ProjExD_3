@@ -135,6 +135,7 @@ class Beam:
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)
 
+
 class Score:
     """
     現在のスコアを表示させ、変動させる
